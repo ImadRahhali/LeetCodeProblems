@@ -28,7 +28,8 @@ class MyHashMap:
             if curr.next.pair[0] == key:
                 curr.next = curr.next.next
                 return
-            curr = curr.next   
+            curr = curr.next
+        return 
 
 
 # Your MyHashMap object will be instantiated and called as such:
