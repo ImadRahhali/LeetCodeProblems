@@ -4,7 +4,7 @@ class ListNode:
         self.next = None
 class MyHashSet:
     def __init__(self):
-        self.set = [ListNode(0) for i in range(10007)]
+        self.set = [ListNode(0) for i in range(10**4)]
     def add(self, key: int) -> None:
         curr = self.set[key % len(self.set)]
         while curr.next:
@@ -14,7 +14,7 @@ class MyHashSet:
         curr.next = ListNode(key)
 
     def remove(self, key: int) -> None:
-        curr = self.set[key % 10007]
+        curr = self.set[key % 10**4]
         while curr.next:
             if curr.next.key == key:
                 curr.next = curr.next.next
@@ -22,7 +22,7 @@ class MyHashSet:
             curr = curr.next
 
     def contains(self, key: int) -> bool:
-        curr = self.set[key % 10007]
+        curr = self.set[key % 10**4]
         while curr.next:
             if curr.next.key == key:
                 return True
