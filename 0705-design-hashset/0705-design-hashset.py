@@ -1,23 +1,33 @@
+class ListNode:
+    def __init__(self,key):
+        self.key = key
+        self.next = None
 class MyHashSet:
-
     def __init__(self):
-        self.table = []
+        self.set = [ListNode(0) for i in range(10**4)]
     def add(self, key: int) -> None:
-        code = hash(key)
-        t = self.table
-        if code not in self.table:
-            t.append(code)
+        curr = self.set[key % len(self.set)]
+        while curr.next:
+            if curr.next.key == key:
+                return
+            curr = curr.next
+        curr.next = ListNode(key)
+
     def remove(self, key: int) -> None:
-        code = hash(key)
-        t = self.table
-        if code in t:
-            t.remove(code)
+        curr = self.set[key % 10**4]
+        while curr.next:
+            if curr.next.key == key:
+                curr.next = curr.next.next
+                return
+            curr = curr.next
+
     def contains(self, key: int) -> bool:
-        code = hash(key)
-        if code in self.table:
-            return True
-        else:
-            return False
+        curr = self.set[key % 10**4]
+        while curr.next:
+            if curr.next.key == key:
+                return True
+            curr = curr.next
+        return False
 
 
 # Your MyHashSet object will be instantiated and called as such:
