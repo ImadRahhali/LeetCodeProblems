@@ -29,7 +29,6 @@ class MyHashMap:
                 curr.next = curr.next.next
                 return
             curr = curr.next
-        return 
 
 
 # Your MyHashMap object will be instantiated and called as such:
