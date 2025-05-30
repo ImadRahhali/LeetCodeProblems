@@ -1,4 +1,4 @@
-# Last updated: 5/31/2025, 12:04:03 AM
+# Last updated: 5/31/2025, 12:06:23 AM
 class Solution:
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
         # i need to know which is a letter log and which is a dig log
@@ -22,14 +22,15 @@ class Solution:
         # digit_logs = [log for log, p in res if p == 1]
         # final_logs = letter_logs + digit_logs
 
-        res = []
-        for i in range(len(logs)):
-            logsArr = logs[i].split()
-            if logsArr[1].isdigit():
-                res.append([logs[i], 1])
+        letter_logs = []
+        digit_logs = []
+
+        for log in logs:
+            if log.split()[1].isdigit():
+                digit_logs.append(log)
             else:
-                res.append([logs[i], 0])
-        letter_logs = [log for log, p in res if p == 0]
+                letter_logs.append(log)
+
         letter_logs.sort(key=lambda log: (log.split()[1:], log.split()[0]))
-        digits_logs = [log for log, p in res if p ==1]
-        return letter_logs + digits_logs
+
+        return letter_logs + digit_logs
