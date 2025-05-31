@@ -1,19 +1,12 @@
-# Last updated: 5/31/2025, 10:12:11 PM
+# Last updated: 5/31/2025, 10:15:06 PM
 class Solution:
     def findMin(self, nums: List[int]) -> int:
         L, R = 0, len(nums) -1
-        res = nums[0]
-
-        while L <= R:
-            if nums[L] < nums[R]:
-                return min(res, nums[L])
-                break
-            mid = (L+R) // 2
-            res = min(res, nums[mid])
-
-            if nums[mid] >= nums[L]:
+        while L < R:
+            mid = (L+R)//2
+            if nums[mid] > nums[R]:
                 L = mid + 1
-            else:
-                R = mid - 1
-        return res
+            elif nums[mid] < nums[R]:
+                R = mid
+        return nums[L]
 
