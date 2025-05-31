@@ -1,4 +1,4 @@
-# Last updated: 5/31/2025, 7:17:24 PM
+# Last updated: 5/31/2025, 7:24:31 PM
 class Solution:
     def mySqrt(self, x: int) -> int:
         if x == 0:
