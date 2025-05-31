@@ -1,4 +1,4 @@
-# Last updated: 5/31/2025, 10:15:15 PM
+# Last updated: 5/31/2025, 10:16:54 PM
 class Solution:
     def findMin(self, nums: List[int]) -> int:
         L, R = 0, len(nums) -1
@@ -6,7 +6,7 @@ class Solution:
             mid = (L+R)//2
             if nums[mid] > nums[R]:
                 L = mid + 1
-            elif nums[mid] < nums[R]:
+            else:
                 R = mid
         return nums[L]
 
