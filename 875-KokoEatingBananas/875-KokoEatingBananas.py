@@ -1,21 +1,16 @@
-# Last updated: 5/31/2025, 8:34:35 PM
+# Last updated: 5/31/2025, 9:06:04 PM
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        def isCorrect(k):
-            return sum((x + k - 1) // k for x in piles) <= h
-
-        max_bananas = max(piles)
-        L = 1
-        R = max_bananas
-
-        k = R
-
+        L, R = 1, max(piles)
+        res = R
         while L <= R:
-            mid = (L + R) // 2
-            if isCorrect(mid):
-                k = mid
-                R = mid - 1
+            k = (L+R) // 2
+            total = 0
+            for p in piles:
+                total += math.ceil(float(p)/k)
+            if total <= h:
+                res = k
+                R = k -1
             else:
-                L = mid + 1
-
-        return k
+                L = k + 1
+        return res
