@@ -1,4 +1,4 @@
-# Last updated: 6/1/2025, 10:51:10 PM
+# Last updated: 6/1/2025, 10:52:04 PM
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -20,4 +20,3 @@ class Solution:
             if curr.right:
                 stack.append(curr.right)
         return root
-#7,
