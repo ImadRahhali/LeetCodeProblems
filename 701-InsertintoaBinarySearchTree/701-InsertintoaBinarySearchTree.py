@@ -1,4 +1,4 @@
-# Last updated: 6/1/2025, 4:26:31 PM
+# Last updated: 6/1/2025, 4:26:58 PM
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -11,6 +11,6 @@ class Solution:
             return TreeNode(val)
         if val < root.val:
             root.left = self.insertIntoBST(root.left, val)
-        elif val > root.val:
+        else:
             root.right = self.insertIntoBST(root.right, val)
         return root
