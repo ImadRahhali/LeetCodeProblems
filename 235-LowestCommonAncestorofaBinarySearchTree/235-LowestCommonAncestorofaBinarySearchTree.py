@@ -1,4 +1,4 @@
-# Last updated: 6/1/2025, 4:11:54 PM
+# Last updated: 6/1/2025, 4:17:49 PM
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -8,18 +8,13 @@
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        def get_val(x):
-            return x.val if hasattr(x, 'val') else x
+        curr = root
 
-        p_val = get_val(p)
-        q_val = get_val(q)
-        if p_val == root.val or q_val == root.val:
-            return root
-        if ((p_val - root.val) * (q_val - root.val) < 0):
-            return root
-        if p_val < root.val:
-            return self.lowestCommonAncestor(root.left, p, q)
-        if p_val > root.val:
-            return self.lowestCommonAncestor(root.right, p, q)
-            
+        while curr:
+            if p.val > curr.val and q.val>curr.val:
+                curr = curr.right
+            elif p.val < curr.val and q.val<curr.val:
+                curr = curr.left
+            else:
+                return curr
 
