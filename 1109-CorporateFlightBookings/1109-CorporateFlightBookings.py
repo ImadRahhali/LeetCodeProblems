@@ -1,4 +1,4 @@
-# Last updated: 6/2/2025, 10:21:05 PM
+# Last updated: 6/2/2025, 10:21:59 PM
 class Solution:
     def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
         seat_updates = [0] * n
