@@ -1,4 +1,4 @@
-# Last updated: 6/2/2025, 9:39:11 PM
+# Last updated: 6/2/2025, 9:39:18 PM
 class Solution:
     def maximumPopulation(self, logs: List[List[int]]) -> int:
         pop_changes = [0] * 101
