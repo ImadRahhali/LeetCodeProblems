@@ -1,4 +1,4 @@
-# Last updated: 6/2/2025, 11:10:12 PM
+# Last updated: 6/2/2025, 11:11:27 PM
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -11,7 +11,7 @@ class Solution:
         def dfs(node, max_val):
             nonlocal count
             if not node:
-                return count
+                return
             
             if node.val >= max_val:
                 count += 1
