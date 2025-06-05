@@ -1,4 +1,4 @@
-# Last updated: 6/5/2025, 8:22:18 PM
+# Last updated: 6/5/2025, 8:23:47 PM
 class Solution:
     def islandPerimeter(self, grid: List[List[int]]) -> int:
         def dfs(r, c, grid, visited):
