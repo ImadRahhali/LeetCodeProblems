@@ -1,21 +1,25 @@
-# Last updated: 6/5/2025, 8:23:58 PM
+# Last updated: 6/5/2025, 8:40:33 PM
 class Solution:
     def islandPerimeter(self, grid: List[List[int]]) -> int:
-        rows, cols = len(grid), len(grid[0])
-        visit = set()
+        visited = set()
 
-        def dfs(i, j):
-            if i < 0 or j < 0 or i >= rows or j >= cols or grid[i][j] == 0:
+        def dfs(r, c):
+            if min(r,c) < 0 or r >= len(grid) or c >= len(grid[0]) or grid[r][c] == 0:
                 return 1
-            if (i, j) in visit:
+            if (r,c) in visited:
                 return 0
             
-            visit.add((i, j))
-            perim = dfs(i, j + 1) + dfs(i + 1, j) + dfs(i, j - 1) + dfs(i - 1, j)
-            return perim
+            counter = 0
+            visited.add((r,c))
+
+            counter += dfs(r-1, c)
+            counter += dfs(r+1, c)
+            counter += dfs(r, c-1)
+            counter += dfs(r, c+1)
+
+            return counter 
         
-        for i in range(rows):
-            for j in range(cols):
-                if grid[i][j]:
-                    return dfs(i, j)
-        return 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == 1:
+                    return dfs(i,j)
