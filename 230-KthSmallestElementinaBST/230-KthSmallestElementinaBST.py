@@ -1,4 +1,4 @@
-# Last updated: 6/5/2025, 2:05:04 PM
+# Last updated: 6/5/2025, 2:05:34 PM
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -8,13 +8,13 @@
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         res = []
-        def dfs(node):
+        def inorder(node):
             nonlocal res
             if not node:
                 return
-            dfs(node.left)
+            inorder(node.left)
             res.append(node.val)
-            dfs(node.right)
+            inorder(node.right)
         
-        dfs(root)
+        inorder(root)
         return res[k-1]
