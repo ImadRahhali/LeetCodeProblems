@@ -1,10 +1,9 @@
-# Last updated: 6/5/2025, 9:11:20 PM
+# Last updated: 6/5/2025, 9:11:32 PM
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         visited = set()
         count = 0
         def dfs(r, c):
-            nonlocal count
             if min(r, c) < 0 or r >= len(grid) or c >= len(grid[0])\
             or grid[r][c] == '0' or (r,c) in visited:
                 return
