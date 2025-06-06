@@ -1,8 +1,7 @@
-# Last updated: 6/6/2025, 9:58:31 AM
+# Last updated: 6/6/2025, 10:36:43 AM
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
-        pacific = set()
-        atlantic = set()
+        pacific, atlantic = set(), set()
         ROWS, COLS = len(heights), len(heights[0])
 
         def dfs(r, c, visited):
@@ -19,12 +18,12 @@ class Solution:
             if c < COLS - 1 and heights[r][c+1] >= heights[r][c]:
                 dfs(r, c+1, visited)
 
-        for j in range(COLS):
-            dfs(0, j, pacific)               # Top row -> Pacific
-            dfs(ROWS - 1, j, atlantic)       # Bottom row -> Atlantic
+        for c in range(COLS):
+            dfs(0, c, pacific)               # Top row -> Pacific
+            dfs(ROWS - 1, c, atlantic)       # Bottom row -> Atlantic
 
-        for i in range(ROWS):
-            dfs(i, 0, pacific)               # Left column -> Pacific
-            dfs(i, COLS - 1, atlantic)       # Right column -> Atlantic
+        for r in range(ROWS):
+            dfs(r, 0, pacific)               # Left column -> Pacific
+            dfs(r, COLS - 1, atlantic)       # Right column -> Atlantic
 
         return [[r, c] for (r, c) in pacific & atlantic]
