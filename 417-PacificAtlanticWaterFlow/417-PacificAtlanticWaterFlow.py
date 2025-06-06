@@ -1,22 +1,20 @@
-# Last updated: 6/6/2025, 10:36:43 AM
+# Last updated: 6/6/2025, 10:43:39 AM
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
         pacific, atlantic = set(), set()
         ROWS, COLS = len(heights), len(heights[0])
 
         def dfs(r, c, visited):
-            if (r, c) in visited:
-                return
             visited.add((r, c))
-
-            if r > 0 and heights[r-1][c] >= heights[r][c]:
-                dfs(r-1, c, visited)
-            if r < ROWS - 1 and heights[r+1][c] >= heights[r][c]:
-                dfs(r+1, c, visited)
-            if c > 0 and heights[r][c-1] >= heights[r][c]:
-                dfs(r, c-1, visited)
-            if c < COLS - 1 and heights[r][c+1] >= heights[r][c]:
-                dfs(r, c+1, visited)
+            directions = [[r-1,c], [r+1,c], [r, c-1], [r, c+1]]
+            for i, j in directions:
+                if (
+                    0 <= i < ROWS and
+                    0 <= j < COLS and
+                    heights[i][j] >= heights[r][c] and
+                    (i,j) not in visited
+                    ):
+                    dfs(i, j, visited)
 
         for c in range(COLS):
             dfs(0, c, pacific)               # Top row -> Pacific
