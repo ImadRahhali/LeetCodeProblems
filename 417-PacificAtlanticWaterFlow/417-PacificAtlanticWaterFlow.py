@@ -1,4 +1,4 @@
-# Last updated: 6/6/2025, 10:44:54 AM
+# Last updated: 6/6/2025, 10:45:42 AM
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
         pacific, atlantic = set(), set()
@@ -14,7 +14,7 @@ class Solution:
                     heights[i][j] >= heights[r][c] and
                     (i,j) not in visited
                     ):
-                    
+
                     dfs(i, j, visited)
 
         for c in range(COLS):
@@ -25,4 +25,4 @@ class Solution:
             dfs(r, 0, pacific)               # Left column -> Pacific
             dfs(r, COLS - 1, atlantic)       # Right column -> Atlantic
 
-        return [[r, c] for (r, c) in pacific & atlantic]
+        return list(pacific & atlantic)
