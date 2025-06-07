@@ -1,4 +1,4 @@
-# Last updated: 6/7/2025, 12:52:45 PM
+# Last updated: 6/7/2025, 12:53:38 PM
 class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
         order_map = {char: index for index, char in enumerate(order)}
