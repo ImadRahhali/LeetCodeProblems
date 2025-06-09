@@ -1,16 +1,14 @@
-# Last updated: 6/9/2025, 4:00:40 PM
+# Last updated: 6/9/2025, 4:09:05 PM
 class Solution:
     def fib(self, n: int) -> int:
-        cache = {}
-        def memo(n):
-            if n <= 1:
-                return n
-            
-            if n in cache:
-                return cache[n]
-            
-            cache[n] = memo(n-1) + memo(n-2)
-            return cache[n]
-        
-        return memo(n)
+        if n <= 1:
+            return n
+        dp = [0,1]
+        i = 2
+        while i <= n:
+            tmp = dp[1]
+            dp[1] = dp[1] + dp[0]
+            dp[0] = tmp
+            i += 1
+        return dp[1]
         
