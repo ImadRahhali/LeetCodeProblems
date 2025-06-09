@@ -1,4 +1,4 @@
-# Last updated: 6/9/2025, 8:14:06 PM
+# Last updated: 6/9/2025, 8:14:12 PM
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
         n = len(cost)
