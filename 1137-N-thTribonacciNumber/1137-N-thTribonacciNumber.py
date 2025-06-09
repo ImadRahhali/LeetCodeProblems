@@ -1,12 +1,10 @@
-# Last updated: 6/9/2025, 8:33:35 PM
+# Last updated: 6/9/2025, 8:35:09 PM
 class Solution:
     def tribonacci(self, n: int) -> int:
-        if n == 0:
-            return 0
-        if n == 1 or n == 2:
-            return 1
-
         dp = [0,1,1]
+
+        if n < 3:
+            return dp[n]
         i = 3
         while i <= n:
             tmp = dp[2]
