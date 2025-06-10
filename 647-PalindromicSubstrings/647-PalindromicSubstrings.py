@@ -1,14 +1,16 @@
-# Last updated: 6/10/2025, 2:18:25 PM
+# Last updated: 6/10/2025, 2:19:30 PM
 class Solution:
     def countSubstrings(self, s: str) -> int:
         count = 0
-        def helper(l, r):
-            nonlocal count
+        for i in range(len(s)):
+            l, r = i, i
             while l >= 0 and r < len(s) and s[l] == s[r]:
                 count += 1
                 l -= 1
                 r += 1
-        for i in range(len(s)):
-            helper(i, i)
-            helper(i, i+1)
+            l, r = i, i+1
+            while l >= 0 and r < len(s) and s[l] == s[r]:
+                count += 1
+                l -= 1
+                r += 1
         return count
