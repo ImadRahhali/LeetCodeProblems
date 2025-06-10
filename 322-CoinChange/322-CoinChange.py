@@ -1,7 +1,24 @@
-# Last updated: 6/10/2025, 3:25:14 PM
+# Last updated: 6/10/2025, 3:38:53 PM
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        memo = {}
+        dp = [float('inf')] * (amount + 1)
+
+        dp[0] = 0
+
+        for i in range(len(dp)):
+            for coin in coins:
+                if coin <= i:
+                    dp[i] = min(dp[i], dp[i-coin] + 1)
+        return dp[amount] if dp[amount] != float('inf') else -1
+            
+        
+        
+        
+        
+        
+        
+        
+        '''memo = {}
         def dfs(n):
             if n == 0:
                 return 0
@@ -20,5 +37,5 @@ class Solution:
 
             return memo[n]
         
-        return dfs(amount)
+        return dfs(amount)'''
         
