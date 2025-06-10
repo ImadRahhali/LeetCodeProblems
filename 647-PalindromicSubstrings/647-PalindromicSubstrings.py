@@ -1,4 +1,4 @@
-# Last updated: 6/10/2025, 2:18:19 PM
+# Last updated: 6/10/2025, 2:18:25 PM
 class Solution:
     def countSubstrings(self, s: str) -> int:
         count = 0
