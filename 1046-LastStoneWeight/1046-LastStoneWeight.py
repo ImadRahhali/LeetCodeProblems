@@ -1,4 +1,4 @@
-# Last updated: 6/11/2025, 1:58:48 PM
+# Last updated: 6/11/2025, 1:58:56 PM
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
         maxheap = [-x for x in stones]
