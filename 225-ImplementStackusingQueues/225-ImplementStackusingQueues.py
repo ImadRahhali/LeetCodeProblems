@@ -1,4 +1,4 @@
-# Last updated: 6/11/2025, 7:22:17 PM
+# Last updated: 6/11/2025, 7:28:35 PM
 class MyStack:
 
     def __init__(self):
@@ -7,7 +7,9 @@ class MyStack:
         self.queue.append(x)
 
     def pop(self) -> int:
-        return self.queue.pop()
+        for i in range(len(self.queue) - 1):
+            self.push(self.queue.popleft())
+        return self.queue.popleft()
 
     def top(self) -> int:
         return self.queue[-1]
