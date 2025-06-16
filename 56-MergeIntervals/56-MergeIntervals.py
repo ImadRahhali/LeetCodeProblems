@@ -1,4 +1,4 @@
-# Last updated: 6/16/2025, 9:24:51 PM
+# Last updated: 6/16/2025, 9:24:56 PM
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         intervals.sort()
