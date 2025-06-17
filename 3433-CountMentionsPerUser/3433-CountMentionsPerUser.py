@@ -1,4 +1,4 @@
-# Last updated: 6/17/2025, 8:29:08 PM
+# Last updated: 6/17/2025, 8:29:18 PM
 class Solution:
     def maxFrequency(self, nums: List[int], k: int) -> int:
         max_freq = 0
