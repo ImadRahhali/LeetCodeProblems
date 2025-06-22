@@ -1,4 +1,4 @@
-# Last updated: 6/22/2025, 9:42:21 AM
+# Last updated: 6/22/2025, 9:42:28 AM
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
         indexes = {num : idx for idx, num in enumerate(nums1)}
