@@ -1,0 +1,15 @@
+# Last updated: 6/22/2025, 9:33:41 AM
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        indexes = {num : idx for idx, num in enumerate(nums1)}
+        res = [-1] * len(nums1)
+
+        for i in range(len(nums2)):
+            if nums2[i] not in indexes:
+                continue
+            for j in range(i+1, len(nums2)):
+                if nums2[j] > nums2[i]:
+                    idx = indexes[nums2[i]]
+                    res[idx] = nums2[j]
+                    break
+        return res
