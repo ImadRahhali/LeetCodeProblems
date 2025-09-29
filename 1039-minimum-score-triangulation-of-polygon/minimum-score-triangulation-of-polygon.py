@@ -1,7 +1,3 @@
-class Solution:
-    def minScoreTriangulation(self, values: List[int]) -> int:
-        @lru_cache(None)
-        def dp(i, j):
             if j - i < 2: return 0
 
             res = float('inf')
@@ -11,3 +7,6 @@ class Solution:
                 res = min(res, curr + dp(i, k) + dp(k, j))
             
             return res
+        
+            memo[(i, j)] = res
+        return dp(0, len(values) - 1)
