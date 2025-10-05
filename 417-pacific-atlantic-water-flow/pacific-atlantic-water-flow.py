@@ -13,11 +13,11 @@
     
                 return
             visit.add((r,c))
-prevHeight > heights[r][c]):
-            if ((r,c) in visit or r < 0 or c < 0 or r == ROWS or c == COLS or 
+heights[r][c] < prevHeight):
+            if ((r,c) in visit or r < 0 or c < 0 or r == ROWS or c == COLS or  
         def dfs(r, c, visit, prevHeight):
 
-        pac, atl = set(), set()
-        ROWS, COLS = len(heights), len(heights[0])
-    def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
-class Solution:
+        res = []
+        for r in range(ROWS):
+            for c in range(COLS):
+                if ((r,c) in pac and (r,c) in atl):
